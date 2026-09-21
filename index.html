@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- 引入 html-docx-js 處理真實 docx 轉換 -->
+    <script src="https://unpkg.com/html-docx-js@0.3.1/dist/html-docx.js"></script>
     <style>
         :root {
             --bg-color: #f4f7f6; 
@@ -761,7 +763,7 @@
 
             <h1 class="main-title" style="color: var(--strong-blue); border-bottom: 4px solid var(--candy-yellow); padding-bottom: 10px; display: inline-block; margin-bottom: 20px;">最終關：建構推廣信</h1>
             <div class="instruction">
-                請根據前面關卡收集到的資料與結構（AIDCA），在以下各個空格中填入完整內容，親自完成這封推廣信！你可以參考右側的「有用的詞彙」庫。<br>
+                請根據前面關卡收集到的資料與結構（AIDCA），在以下各個空格中填入完整內容，親自完成這封推廣信！<span style="color: var(--strong-orange); font-weight: 900;"><i class="fa-solid fa-book-open"></i> 建議在動筆前，先前往第四課的「4 寫作步驟」重溫寫作技巧</span>，並可參考右側的「有用的詞彙」庫。<br>
                 完成後請點選右上角「完成寫作」，即可解鎖右下角的輸出按鈕。
             </div>
             
@@ -850,7 +852,7 @@
                     </div>
                     <div>
                         <strong style="color: var(--candy-purple);">行動與認證：</strong><br>
-                        <span class="vocab-tag" onclick="copyVocab(this)">鞏固信心</span>
+                        <span class="vocab-tag" onclick="copyVocab(this)">詳盡講解</span>
                         <span class="vocab-tag" onclick="copyVocab(this)">機會難逢</span>
                         <span class="vocab-tag" onclick="copyVocab(this)">心動不如行動</span>
                         <span class="vocab-tag" onclick="copyVocab(this)">滿載而歸</span>
@@ -938,7 +940,7 @@
                     </div>
                 `,
                 options: [
-                    { t: "保證讓你們住得舒心，玩得暢快。", c: true, r: "" },
+                    { t: "保證讓您住得舒心，玩得暢快。", c: true, r: "" },
                     { t: "消除長途旅程的疲勞，享受尊貴的住宿體驗。", c: true, r: "" },
                     { t: "酒店內設有兒童遊樂設施，讓小朋友玩得開心。", c: false, r: "未針對目標顧客喜好。這是品酒馬拉松團，主要對象為成人而非小童。" },
                     { t: "晚上有地方可以睡覺，不用露宿街頭。", c: false, r: "表達不吸引，未能突出四星級酒店帶來的高級享受。" }
@@ -956,9 +958,9 @@
                     </div>
                 `,
                 options: [
-                    { t: "怡人美景盡收眼底，名勝古跡一覽無遺。", c: true, r: "" },
-                    { t: "讓你們仿如置身於法國浪漫的電影場景中。", c: true, r: "" },
-                    { t: "附近有多間特賣場，讓你可以買盡便宜貨。", c: false, r: "未針對目標顧客喜好。行程重點在於觀景與品酒，而非廉價血拼。" },
+                    { t: "風景怡人盡收眼底，名勝古跡一覽無遺。", c: true, r: "" },
+                    { t: "讓您仿如置身於法國浪漫的電影場景中。", c: true, r: "" },
+                    { t: "附近有多間特賣場，讓您可以買盡便宜貨。", c: false, r: "未針對目標顧客喜好。行程重點在於觀景與品酒，而非廉價血拼。" },
                     { t: "可以看到很多舊房子和外國風景。", c: false, r: "表達太過平淡，未能突出歐洲古城美景的好處。" }
                 ]
             },
@@ -977,8 +979,8 @@
                 `,
                 options: [
                     { t: "美食當前，絕對令人垂涎三尺！", c: true, r: "" },
-                    { t: "讓你們品嚐最正宗的法式佳餚，大快朵頤。", c: true, r: "" },
-                    { t: "份量超大，保證讓你可以吃到很飽。", c: false, r: "未針對目標顧客喜好。高價旅行團追求的是品味享受，而非單純粗飽。" },
+                    { t: "讓您品嚐最正宗的法式佳餚，大快朵頤。", c: true, r: "" },
+                    { t: "份量超大，保證讓您可以吃到很飽。", c: false, r: "未針對目標顧客喜好。高價旅行團追求的是品味享受，而非單純粗飽。" },
                     { t: "餐廳有提供食物，味道還可以。", c: false, r: "表達不吸引，白白浪費了「米芝蓮推介」的權威認證。" }
                 ]
             },
@@ -994,8 +996,8 @@
                     </div>
                 `,
                 options: [
-                    { t: "寓運動於娛樂，勢必令你們滿載而歸！", c: true, r: "" },
-                    { t: "一邊享受跑步樂趣，一邊品嚐頂級酒莊美食。", c: true, r: "" },
+                    { t: "寓運動於娛樂，勢必令您滿載而歸！", c: true, r: "" },
+                    { t: "一邊享受跑步樂趣，一邊品嚐高級酒莊美食。", c: true, r: "" },
                     { t: "挑戰人體極限，體驗最艱苦的魔鬼訓練。", c: false, r: "未針對目標顧客喜好。單張標明是「FUN RUN」，強調歡樂而非魔鬼訓練。" },
                     { t: "就是跑跑步，然後吃點東西。", c: false, r: "表達極度不吸引，完全沒有突出特色。" }
                 ]
@@ -1013,7 +1015,7 @@
                 `,
                 options: [
                     { t: "豐富獎品與折扣，絕對物超所值。", c: true, r: "" },
-                    { t: "讓你們提早了解行程，更有機會獲得豐富禮遇。", c: true, r: "" },
+                    { t: "讓您提早了解行程，更有機會獲得豐富禮遇。", c: true, r: "" },
                     { t: "適合喜歡貪小便宜的家庭主婦。", c: false, r: "未針對目標顧客喜好。貶低了顧客的身份，會造成反效果。" },
                     { t: "來聽講就有紅酒，報名少收500塊。", c: false, r: "表達過於口語化且不夠吸引，缺乏推廣信應有的專業感。" }
                 ]
@@ -1023,6 +1025,7 @@
         let scores1 = 0;
 
         function initStep1() {
+            addScore(-scores1); // 扣除本關累計分數
             scores1 = 0;
             document.getElementById('score-step1').innerText = 0;
             currentStep1Index = 0;
@@ -1134,6 +1137,7 @@
         let scores2 = 0;
 
         function initStep2() {
+            addScore(-scores2); // 扣除本關累計分數
             scores2 = 0;
             document.getElementById('score-step2').innerText = 0;
             document.getElementById('btn-check-sort').disabled = false;
@@ -1241,16 +1245,16 @@
 
         // ====== 關卡三：爆旋陀螺選詞戰 (10題) ======
         const shooterData = [
-            { text: "推出由金牌教練帶領的旅行團，為你們帶來 [____] 的旅遊體驗。", ans: "非同凡響", wrongs: ["活潑可愛", "平平無奇"], fb: { w1: "「活潑可愛」雖然是正面詞，但用來形容旅行團體驗不太合適喔！", w2: "這個詞太平淡了，無法突顯旅行團的特別之處！" } },
-            { text: "我們會帶你們遊歷波爾多 [____] 的聖艾美倫。", ans: "千酒之丘", wrongs: ["綠意盎然", "荒蕪偏僻"], fb: { w1: "雖然是正面詞，但這裡要強調的是波爾多葡萄酒產區的特色喔！", w2: "這個詞給人負面觀感，無法引起顧客想去旅遊的興趣！" } },
-            { text: "在 [____] 的餐廳裡，品嚐法國蝸牛與牛扒，絕對令人大快朵頤！", ans: "米芝蓮推介", wrongs: ["裝修華麗", "無人問津"], fb: { w1: "雖然環境好，但提到美食，有權威認證會更吸引顧客喔！", w2: "這是負面詞彙，絕對無法吸引顧客！" } },
-            { text: "漫步於 [____] 的法國小鎮，名勝古跡一覽無遺。", ans: "怡人美景", wrongs: ["熱鬧喧囂", "破舊不堪"], fb: { w1: "雖然熱鬧，但搭配「漫步」和欣賞古蹟，可能不夠休閒放鬆！", w2: "用這個詞形容景點，會把客人嚇跑的！" } },
-            { text: "賽道途經五大 [____] 酒莊，讓你們一邊跑步一邊品嚐美酒。", ans: "頂級特級", wrongs: ["龐大寬敞", "劣質廉價"], fb: { w1: "雖然大，但不一定代表品質好，無法突顯酒莊的高級！", w2: "這些詞無法突顯品質，無法吸引顧客報名。" } },
+            { text: "我們誠意推出由金牌教練帶領的旅行團，為您帶來 [____] 的旅遊體驗。", ans: "非同凡響", wrongs: ["活潑可愛", "平平無奇"], fb: { w1: "「活潑可愛」雖然是正面詞，但用來形容旅行團體驗不太合適喔！", w2: "這個詞太平淡了，無法突顯旅行團的特別之處！" } },
+            { text: "行程將帶您遊歷波爾多，參觀享有「[____]」美譽的聖艾美倫古城。", ans: "千酒之丘", wrongs: ["綠意盎然", "荒蕪偏僻"], fb: { w1: "雖然是正面詞，但這裡要強調的是波爾多葡萄酒產區的特色喔！", w2: "這個詞給人負面觀感，無法引起顧客想去旅遊的興趣！" } },
+            { text: "在榮獲 [____] 的餐廳裡，品嚐法國蝸牛與牛扒，絕對令人大快朵頤！", ans: "米芝蓮推介", wrongs: ["裝修華麗", "無人問津"], fb: { w1: "雖然環境好，但提到美食，有權威認證會更吸引顧客喔！", w2: "這是負面詞彙，絕對無法吸引顧客！" } },
+            { text: "漫步於 [____] 的法國小鎮，沿途名勝古跡一覽無遺。", ans: "風景怡人", wrongs: ["熱鬧喧囂", "破舊不堪"], fb: { w1: "雖然熱鬧，但搭配「漫步」和欣賞古蹟，可能不夠休閒放鬆！", w2: "用這個詞形容景點，會把客人嚇跑的！" } },
+            { text: "賽道途經五間 [____] 的酒莊，讓您一邊跑步一邊品嚐美酒。", ans: "享負盛名", wrongs: ["龐大寬敞", "劣質廉價"], fb: { w1: "雖然大，但不一定代表品質好，無法突顯酒莊的高級！", w2: "這些詞無法突顯品質，無法吸引顧客報名。" } },
             { text: "參加旅遊講座，就有機會贏取 [____] 的獎品。", ans: "豐富吸引", wrongs: ["小巧玲瓏", "微薄寒酸"], fb: { w1: "獎品通常要強調豐富有價值，小巧玲瓏可能讓人覺得獎品不大方。", w2: "這個詞讓人覺得獎品沒有價值，無法激發顧客參加的慾望。" } },
             { text: "這項 [____] 的盛事每年都會吸引近一萬名選手慕名前來。", ans: "萬眾矚目", wrongs: ["莊嚴肅穆", "乏人問津"], fb: { w1: "這通常形容嚴肅的場合，不適合形容歡樂的馬拉松活動喔！", w2: "這不是正面宣傳會用的詞，無法帶出活動的受歡迎程度！" } },
-            { text: "全程入住四星級酒店，保證讓你們住得 [____]。", ans: "舒心暢快", wrongs: ["金碧輝煌", "提心吊膽"], fb: { w1: "形容裝潢可以，但這裡要強調的是帶給顧客的住宿「感受」喔！", w2: "這代表睡得不好或不安全，完全沒有帶來好處！" } },
-            { text: "名額只有 40 位，[____]，心動不如馬上行動！", ans: "機會難逢", wrongs: ["自由自在", "供過於求"], fb: { w1: "雖然是好詞，但無法營造出「名額有限」的稀缺感促使行動！", w2: "這樣寫會讓顧客覺得隨時報名都可以，無法促使立即行動！" } },
-            { text: "寓運動於娛樂，勢必讓你們 [____]，留下難忘回憶。", ans: "滿載而歸", wrongs: ["依依不捨", "敗興而返"], fb: { w1: "雖然代表好玩，但作為推廣信的「承諾」，滿載收穫會更有吸引力！", w2: "這是令人失望的結果，絕對不能出現在推廣信中喔！" } }
+            { text: "全程入住四星級酒店，保證讓您住得 [____]。", ans: "舒心暢快", wrongs: ["金碧輝煌", "提心吊膽"], fb: { w1: "形容裝潢可以，但這裡要強調的是帶給顧客的住宿「感受」喔！", w2: "這代表睡得不好或不安全，完全沒有帶來好處！" } },
+            { text: "名額只有 40 位，實在 [____]，心動不如馬上行動！", ans: "機會難逢", wrongs: ["自由自在", "供過於求"], fb: { w1: "雖然是好詞，但無法營造出「名額有限」的稀缺感促使行動！", w2: "這樣寫會讓顧客覺得隨時報名都可以，無法促使立即行動！" } },
+            { text: "寓運動於娛樂，勢必讓您 [____]，留下難忘回憶。", ans: "滿載而歸", wrongs: ["依依不捨", "敗興而返"], fb: { w1: "雖然代表好玩，但作為推廣信的「承諾」，滿載收穫會更有吸引力！", w2: "這是令人失望的結果，絕對不能出現在推廣信中喔！" } }
         ];
 
         let currentBBIndex = 0;
@@ -1412,8 +1416,14 @@
             isBBPlaying = false;
             bbIntervals.forEach(clearInterval);
             document.getElementById('bb-question-box').innerHTML = '點擊下方 START 準備開始...';
+            // 恢復競技場的內部結構以供重新挑戰
+            document.getElementById('beyblade-stadium').innerHTML = '<div class="stadium-inner"></div>';
             document.getElementById('beyblade-stadium').style.display = 'none';
             document.getElementById('bb-start-btn-container').style.display = 'block';
+            addScore(-scores3); // 扣除本關累計分數
+            scores3 = 0;
+            currentBBIndex = 0;
+            document.getElementById('score-step3').innerText = scores3;
         }
 
         // ====== 關卡四：實戰寫作 ======
@@ -1432,7 +1442,7 @@
             btn.innerText = '已完成寫作！';
             btn.disabled = true;
             document.getElementById('export-btns').style.display = 'flex';
-            showFeedbackModal('全部通關！', "寫作已完成！解鎖 +10 分。現在你可以點擊右下角的按鈕輸出 PDF, Word 或圖片報告了。");
+            showFeedbackModal('全部通關！', "寫作已完成！解鎖 +10 分。現在您可以點擊右下角的按鈕輸出 PDF, Word 或圖片報告了。");
         }
 
         // ====== 輸出功能 (僅關卡四) ======
@@ -1465,15 +1475,14 @@
         }
 
         function exportHTMLToWord() {
-            var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>推廣信完成版</title><style>body{font-family:'Microsoft JhengHei', serif; line-height:2; color:#2d3436;} .write-section{margin-bottom:15px;}</style></head><body>";
-            var footer = "</body></html>";
-            
             var originalContainer = document.getElementById('final-letter');
             var cloneNode = originalContainer.cloneNode(true);
             var originalInputs = originalContainer.querySelectorAll('input, textarea');
 
+            // 移除不必要的標籤
             cloneNode.querySelectorAll('.write-label').forEach(el => el.remove());
 
+            // 把輸入框的值轉成純文字 div/span
             cloneNode.querySelectorAll('input, textarea').forEach(function(input, index) {
                 var text = originalInputs[index].value.trim();
                 
@@ -1505,13 +1514,41 @@
             });
 
             var sourceHTML = cloneNode.outerHTML;
-            var fullHTML = header + sourceHTML + footer;
-            var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(fullHTML);
+
+            // 嘗試使用 html-docx-js 產生真實的 docx 檔案
+            try {
+                if (typeof htmlDocx !== 'undefined') {
+                    var fullHTML = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>推廣信完成版</title></head><body>" + sourceHTML + "</body></html>";
+                    // 轉為真實 docx Blob
+                    var converted = htmlDocx.asBlob(fullHTML);
+                    var url = URL.createObjectURL(converted);
+                    
+                    var link = document.createElement("a");
+                    link.href = url;
+                    link.download = '推廣信寫作_完成版.docx';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+                    return; // 成功執行就結束函數
+                }
+            } catch(e) {
+                console.error("docx 轉換失敗，將自動退回 .doc 格式", e);
+            }
+
+            // [備用方案] 若網路問題未載入套件，退回原生支援的 .doc 格式
+            alert("因無法順利將檔案轉為 docx 格式，系統將自動以相容性最佳的 .doc 格式下載。");
+            var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>推廣信完成版</title><style>body{font-family:'Microsoft JhengHei', serif; line-height:2; color:#2d3436;} .write-section{margin-bottom:15px;}</style></head><body>";
+            var footer = "</body></html>";
+            var fullFallbackHTML = header + sourceHTML + footer;
             
-            var link = document.createElement("a");
-            link.href = source;
-            link.download = '推廣信寫作_完成版.doc';
-            link.click();
+            var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(fullFallbackHTML);
+            var linkFallback = document.createElement("a");
+            linkFallback.href = source;
+            linkFallback.download = '推廣信寫作_完成版.doc';
+            document.body.appendChild(linkFallback);
+            linkFallback.click();
+            document.body.removeChild(linkFallback);
         }
 
         window.onload = () => {
